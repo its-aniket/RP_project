@@ -1,0 +1,36 @@
+version: 2025-11-04
+jurisdiction: IN
+products:
+  housing:
+    FOIR_MAX: 0.55
+    FOIR_TOLERANCE: 0.60
+    BUREAU_MIN: 700
+    BUREAU_REVIEW_LO: 650
+    LTV_CAP:
+      bands:
+        - {ticket: "<=2_000_000", cap: 0.90}
+        - {ticket: "2_000_001-7_500_000", cap: 0.80}
+        - {ticket: ">7_500_000", cap: 0.75}
+    RATE_BAND: {A: [8.0, 9.5], B: [9.6, 10.5], C: [10.6, 12.0]}
+  gold:
+    LTV_CAP: 0.75
+    BUREAU_MIN: 680
+    FOIR_MAX: 0.55
+  vehicle:
+    LTV_CAP: 0.90
+    BUREAU_MIN: 700
+    FOIR_MAX: 0.55
+  personal:
+    BUREAU_MIN: 720
+    FOIR_MAX: 0.50
+  microfinance:
+    HH_INCOME_MAX: "policy_ref: RBI_micro_income_cap"
+    INSTALLMENT_SHARE_MAX: 0.50
+    BUREAU_MIN: 650
+  msme:
+    NAYAK_WC_PCT: 0.25
+    BORROWER_NWC_MIN: 0.05
+    BANK_FINANCE_PCT: 0.20
+global:
+  AML_PEP_POLICY: {pep_requires: "enhanced_due_diligence", action_if_unresolved: "escalate"}
+  NEGATIVE_LIST_ACTION: "decline"
